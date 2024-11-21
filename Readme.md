@@ -8,7 +8,12 @@
 - run the main.py and open 127.0.0.1/docs to test the endpoints
 
 ## Build main.exe for local distribution
-- execute pyinstaller -F main.py --clean to build the main.exe for local distribution on windows machines
+- execute `pyinstaller --onefile --add-data "C:\Users\<username>\AppData\Local\ms-playwright\chromium-1140:playwright/chromium" -F main.py --clean` to build the main.exe for local distribution on windows machines
+    - replace the username in the path with your local user where playwright was installed
+
+### Note about playwright
+- when the api responds for the dm endpoint that the executable does not exist check the path for temp folder and this exe might be packed again with the new path
+- the current path to chromium when packed inside the exe during runtime is C:\Users\<username>\AppData\Local\Temp\_MEI198562\playwright\chromium\chrome-win
 
 ## Running application on Windows
 - run the main.exe
